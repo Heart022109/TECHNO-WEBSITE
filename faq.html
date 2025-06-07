@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQs - Sweet Balance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      padding-top: 100px;
+      background: #fffaf5;
+      font-family: Arial, sans-serif;
+      color: #4a3c31;
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #f97316;
+      box-shadow: 0 4px 12px rgba(249, 115, 22, 0.5);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: white;
+      font-family: 'Pacifico', cursive;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 1.6rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: #4a3c31;
+      font-weight: 700;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #4a3c31;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fffaf5;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      color: #e65c00;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .faq-item {
+      margin-bottom: 2rem;
+    }
+
+    .faq-item h3 {
+      font-size: 1.1rem;
+      color: #5d1f0d;
+      font-weight: bold;
+    }
+
+    .faq-item p {
+      font-size: 1rem;
+      color: #4a3c31;
+      margin: 0.3rem 0 0 0;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .cta a {
+      background-color: #f97316;
+      color: white;
+      padding: 0.8rem 1.4rem;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(249, 115, 22, 0.5);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+    }
+
+    .cta a:hover,
+    .cta a:focus {
+      background-color: #c75c00;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #ea580c;
+      color: white;
+      text-align: center;
+      padding: 1.3rem 1rem;
+      border-top-left-radius: 25px;
+      border-top-right-radius: 25px;
+      font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+      box-shadow: 0 -6px 12px rgb(234 88 12 / 0.8);
+      user-select: none;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="sweetbalance.jpg" alt="Sweet Balance Logo" />
+      <span>Sweet Balance</span>
+    </div>
+    <nav>
+      <a href="ABOUT.html">About Us</a>
+      <a href="FAQ.html">FAQs</a>
+      <a href="CONTACT US.html">Contact Us</a>
+      <a href="MENU.html">Menu</a>
+      <a href="CART.html">Shopping Cart</a>
+      <a href="ORDERFORM.html">Order Form</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Frequently Asked Questions</h1>
+
+    <div class="faq-item">
+      <h3>Q: Are your products keto or diabetic-friendly?</h3>
+      <p>A: Many of our offerings are low in sugar and made with natural sweeteners like coconut sugar and honey. We also accommodate custom orders for specific dietary needs.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Q: Do you offer delivery or meet-ups?</h3>
+      <p>A: Yes! We offer scheduled deliveries within Metro Manila and nearby areas. Pick-up and meet-up options are also available depending on location.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Q: Are your ingredients organic?</h3>
+      <p>A: We prioritize clean-label, high-quality ingredients, some of which are organic and locally sourced. We do not use artificial preservatives or flavorings.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Q: How should I store your pastries to keep them fresh?</h3>
+      <p>A: Most of our products are best enjoyed fresh but can be stored in an airtight container at room temperature for 2–3 days or refrigerated for up to a week.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Q: Do you cater to events or bulk orders?</h3>
+      <p>A: Yes, we accept bulk orders for parties, corporate events, and special occasions. Custom packaging and flavors are available upon request.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Q: Do your products contain allergens like nuts or dairy?</h3>
+      <p>A: Some of our items contain common allergens such as nuts, eggs, and dairy. Ingredients are listed in each product description. Let us know if you have allergies — we’re happy to recommend options.</p>
+    </div>
+
+    <div class="cta">
+      <a href="TECHNO.html">Back</a>
+    </div>
+  </main>
+
+</body>
+</html>
