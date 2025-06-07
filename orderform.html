@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff8ec;
+      margin: 20px;
+      color: #5a3921;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    table {
+      width: 90%;
+      margin: 0 auto 20px auto;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: center;
+      border-bottom: 1px solid #e0c9a6;
+    }
+    th {
+      background-color: #d96c00;
+      color: white;
+    }
+    #total {
+      font-weight: bold;
+      font-size: 1.3rem;
+      margin-top: 10px;
+      text-align: right;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #delivery-info {
+      width: 90%;
+      margin: 0 auto 30px auto;
+      font-size: 1.1rem;
+    }
+    form {
+      width: 90%;
+      margin: 0 auto 30px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #d96c00;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+      resize: vertical;
+    }
+    textarea {
+      height: 80px;
+    }
+    #confirm-btn, .back-btn {
+      display: inline-block;
+      margin: 20px 10px 0 10px;
+      padding: 12px 25px;
+      background-color: #d96c00;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      width: max-content;
+      transition: background-color 0.3s ease;
+    }
+    #confirm-btn:hover, .back-btn:hover {
+      background-color: #b85600;
+    }
+    .error {
+      color: red;
+      font-size: 0.9rem;
+      margin-top: 5px;
+    }
+    .button-group {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Confirm Your Order</h1>
+
+  <div id="delivery-info"></div>
+
+  <table id="order-table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price (₱)</th>
+        <th>Quantity</th>
+        <th>Subtotal (₱)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Order items go here -->
+    </tbody>
+  </table>
+
+  <div id="total"></div>
+
+  <form id="order-form" novalidate>
+    <label for="name">Full Name *</label>
+    <input type="text" id="name" name="name" required />
+    <div class="error" id="name-error"></div>
+
+    <label for="email">Email Address *</label>
+    <input type="email" id="email" name="email" required />
+    <div class="error" id="email-error"></div>
+
+    <label for="address">Delivery Address *</label>
+    <textarea id="address" name="address" required></textarea>
+    <div class="error" id="address-error"></div>
+
+    <label for="contact">Contact Number *</label>
+    <input type="tel" id="contact" name="contact" required pattern="[0-9+()\- ]{7,15}" />
+    <div class="error" id="contact-error"></div>
+  </form>
+
+  <button id="confirm-btn">Confirm Order</button>
+  <button class="back-btn" onclick="window.location.href='cart.html'">Back to Cart</button>
+
+  <script>
+    const productImages = {
+      "Carrot Muffins": "pic10.jpg",
+      "Banana Oat Cookies": "pic9.jpg",
+      "Coconut Macaroons": "pic8.jpg",
+      "Lemon Almond Cake": "pic7.jpg",
+      "Banana Bread": "pic6.jpg",
+      "Dark Chocolate Truffles": "pic5.jpg",
+      "Apple Crumble": "pic4.jpg",
+      "Almond Choco Chip Cookies": "pic3.jpg",
+      "Pumpkin Pie": "pic2.jpg",
+      "Blueberry Muffins": "pic1.jpg"
+    };
+
+    const orderInfo = JSON.parse(localStorage.getItem('orderInfo'));
+    const tbody = document.querySelector('#order-table tbody');
+    const totalEl = document.getElementById('total');
+    const deliveryInfo = document.getElementById('delivery-info');
+    const confirmBtn = document.getElementById('confirm-btn');
+
+    if (!orderInfo || !orderInfo.items || orderInfo.items.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="4">No order found. Please go back and add items to your cart.</td></tr>';
+      confirmBtn.disabled = true;
+    } else {
+      // Show delivery date
+      deliveryInfo.textContent = `Delivery Date: ${orderInfo.deliveryDate}`;
+
+      // Populate table rows
+      orderInfo.items.forEach(item => {
+        const subtotal = item.price * item.quantity;
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>
+            <img src="${productImages[item.name]}" alt="${item.name}" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px; vertical-align: middle; margin-right: 10px;">
+            ${item.name}
+          </td>
+          <td>${item.price.toFixed(2)}</td>
+          <td>${item.quantity}</td>
+          <td>${subtotal.toFixed(2)}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      totalEl.textContent = `Total: ₱${orderInfo.total}`;
+    }
+
+    // Form validation and submission
+    confirmBtn.addEventListener('click', () => {
+      clearErrors();
+      const form = document.getElementById('order-form');
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const address = form.address.value.trim();
+      const contact = form.contact.value.trim();
+
+      let valid = true;
+
+      if (name === '') {
+        showError('name-error', 'Full Name is required.');
+        valid = false;
+      }
+
+      if (email === '') {
+        showError('email-error', 'Email is required.');
+        valid = false;
+      } else if (!validateEmail(email)) {
+        showError('email-error', 'Please enter a valid email.');
+        valid = false;
+      }
+
+      if (address === '') {
+        showError('address-error', 'Delivery Address is required.');
+        valid = false;
+      }
+
+      if (contact === '') {
+        showError('contact-error', 'Contact Number is required.');
+        valid = false;
+      } else if (!/^[0-9+()\- ]{7,15}$/.test(contact)) {
+        showError('contact-error', 'Please enter a valid contact number.');
+        valid = false;
+      }
+
+      if (!valid) return;
+
+      // If valid, confirm order
+      alert(`Thank you, ${name}! Your order has been confirmed.\nWe will deliver your items on ${orderInfo.deliveryDate}.`);
+
+      // Clear cart and order info after confirmation
+      localStorage.removeItem('cart');
+      localStorage.removeItem('orderInfo');
+
+      // Redirect to menu or home page
+      window.location.href = 'menu.html';
+    });
+
+    function showError(id, message) {
+      document.getElementById(id).textContent = message;
+    }
+
+    function clearErrors() {
+      ['name-error', 'email-error', 'address-error', 'contact-error'].forEach(id => {
+        document.getElementById(id).textContent = '';
+      });
+    }
+
+    function validateEmail(email) {
+      // Simple email regex
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+  </script>
+
+</body>
+</html>

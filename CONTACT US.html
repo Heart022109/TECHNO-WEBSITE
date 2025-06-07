@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Sweet Balance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding-top: 80px;
+      background: #fffaf5;
+      font-family: 'Poppins', sans-serif;
+      color: #4a3c31;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #f97316;
+      box-shadow: 0 4px 12px rgba(249, 115, 22, 0.5);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: white;
+      font-family: 'Pacifico', cursive;
+      letter-spacing: 2px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 1.6rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: #4a3c31;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #4a3c31;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
+    }
+
+    .container {
+      max-width: 800px;
+      padding: 2rem;
+      border-radius: 15px;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      color: #e65c00;
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-section {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .contact-emoji {
+      font-size: 1.7rem;
+      width: 30px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .contact-details h3 {
+      font-size: 1.15rem;
+      color: #c75c00;
+      margin: 0 0 0.4rem 0;
+    }
+
+    .contact-details p,
+    .contact-details a {
+      font-size: 1rem;
+      color: #555;
+      margin: 0.1rem 0;
+      text-decoration: none;
+      background: transparent;
+    }
+
+    .contact-details a:hover {
+      color: #d96c00;
+      text-decoration: underline;
+    }
+
+    .cta {
+      margin: 2rem auto;
+      text-align: center;
+    }
+
+    .cta a {
+      background-color: #f97316;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta a:hover {
+      background-color: #d65c00;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+      }
+
+      nav {
+        margin-top: 0.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .container {
+        padding: 1.5rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .contact-section {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+
+      .contact-emoji {
+        font-size: 1.6rem;
+      }
+
+      .contact-details {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="sweetbalance.jpg" alt="Sweet Balance Logo" />
+      <span>Sweet Balance</span>
+    </div>
+    <nav>
+      <a href="ABOUT.html">About Us</a>
+      <a href="FAQ.html">FAQs</a>
+      <a href="CONTACT US.html">Contact Us</a>
+      <a href="MENU.html">Menu</a>
+      <a href="CART.html">Shopping Cart</a>
+      <a href="ORDERFORM.html">Order Form</a>
+    </nav>
+  </header>
+
+  <div class="contact-container">
+    <h1>Contact Us</h1>
+
+   <div class="contact-section">
+      <div class="contact-details">
+        <h3>Email</h3>
+        <p><a href="mailto:balancesweet225@gmail.com">balancesweet225@gmail.com</a></p>
+      </div>
+    </div>
+
+    <div class="contact-section">
+      <div class="contact-details">
+        <h3>Hotline</h3>
+        <p>+63-123-456-7890</p>
+        <p>Available 24/7</p>
+      </div>
+    </div>
+
+    <div class="contact-section">
+      <div class="contact-details">
+        <h3>Address</h3>
+        <p>82 JB Miguel St. Bambang, Pasig City</p>
+        <p>Metro Manila 1600</p>
+      </div>
+    </div>
+
+    <div class="contact-section">
+      <div class="contact-details">
+        <h3>Facebook</h3>
+        <p><a href="https://www.facebook.com/profile.php?id=61575952452924" target="_blank" rel="noopener noreferrer">Visit our page</a></p>
+      </div>
+    </div>
+
+    <div class="cta">
+      <a href="index.html">Back</a>
+    </div>
+  </div>
+
+</body>
+</html>
